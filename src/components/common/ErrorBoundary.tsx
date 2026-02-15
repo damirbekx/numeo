@@ -60,22 +60,31 @@ class ErrorBoundary extends Component<Props, State> {
       return;
     }
 
+    const escapeHTML = (text: string) => {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    };
+
+    const errorStr = escapeHTML(error.toString());
+    const componentStack = escapeHTML(errorInfo.componentStack || '');
+
     const message = `
-🚨 *Error in Dashboard Application* 🚨
+<b>🚨 Error in Dashboard Application 🚨</b>
 
-*Error:* ${error.toString()}
+<b>Error:</b>
+<code>${errorStr}</code>
 
-*Stack Component:*
-\`\`\`
-${errorInfo.componentStack}
-\`\`\`
+<b>Stack Component:</b>
+<pre>${componentStack}</pre>
     `;
 
     try {
       await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
         chat_id: TELEGRAM_CHAT_ID,
         text: message,
-        parse_mode: 'Markdown',
+        parse_mode: 'HTML',
       });
     } catch (telegramError) {
       console.error('Failed to send error to Telegram:', telegramError);

@@ -161,7 +161,7 @@ const Help: React.FC = () => {
                       dataSource={[
                         { icon: <Search size={18} />, title: "Search", desc: "Debounced user lookup." },
                         { icon: <Filter size={18} />, title: "Filter", desc: "Country and status sorting." },
-                        { icon: <Database size={18} />, title: "Virtualization", desc: "Handles 10k+ rows via React Virtuoso." },
+                        { icon: <Database size={18} />, title: "Virtualization", desc: "Handles 10k+ rows via Ant Design Table." },
                         { icon: <Edit3 size={18} />, title: "Live Edit", desc: "Optimistic state updates." }
                       ]}
                       renderItem={(item) => (

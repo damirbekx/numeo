@@ -4,7 +4,7 @@ A professional, high-performance dashboard built with React, TypeScript, and Ant
 
 ## 🚀 Features
 
-- **Performance First**: Mandatory row virtualization using `react-virtuoso` to handle 10,000+ users smoothly.
+- **Performance First**: Optimized Ant Design Table for high-volume data handling.
 - **Data Management**: Powered by TanStack React Query with Infinite Scroll.
 - **Interactions**:
   - Debounced search (500ms).
@@ -26,7 +26,7 @@ A professional, high-performance dashboard built with React, TypeScript, and Ant
 - **Axios** (API requests)
 - **SweetAlert2** (Popups)
 - **Lucide React** (Icons)
-- **React Virtuoso** (Virtualization)
+- **Ant Design Table** (Virtual scrolling)
 
 ## 📦 Getting Started
 
@@ -54,6 +54,6 @@ A professional, high-performance dashboard built with React, TypeScript, and Ant
 
 ## 🧪 Implementation Highlights
 
-- **Virtualization**: Uses `react-virtuoso` to render only the visible rows, keeping the DOM light even with 10k items.
+- **Virtualization**: Uses Ant Design's built-in scroll optimization to render only the visible rows, keeping the DOM light even with 10k items.
 - **Expensive Row Computation**: Each user row calculates a dynamic "Score" on the fly with a forced delay to demonstrate rendering efficiency.
 - **Optimistic Updates**: When you save a user, the UI updates immediately. If the API fails (simulated for testing), it rolls back the state and shows an error.
