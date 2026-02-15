@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #3b82f6;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --font-sans: "Inter", "Outfit", system-ui, sans-serif;
+  --shadow-premium:
+    0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --color-sidebar-dark: #0f172a;
+  --color-header-dark: #0f172a;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.slide-in-from-bottom-4 {
+  animation-name: slideInFromBottom;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+:root {
+  background-color: #f8fafc;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1e293b;
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.sidebar-shadow {
+  box-shadow: 10px 0 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.06);
+}
+
+.ant-layout {
+  background: transparent !important;
+}
+
+.ant-menu-dark {
+  background: transparent !important;
+}
+
+.ant-menu-item {
+  height: 48px !important;
+  line-height: 48px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.ant-menu-item-selected {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
+}
+
+.ant-menu-item-selected .anticon,
+.ant-menu-item-selected svg {
+  color: #60a5fa !important;
+}
+
+.ant-menu-inline .ant-menu-item {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+.ant-menu-item:hover {
+  color: #fff !important;
+}
+
+.custom-virtuoso [data-testid="virtuoso-scroller"] {
+  scrollbar-width: thin;
+  scrollbar-color: #e2e8f0 transparent;
+}
+
+.user-table-row {
+  transition: all 0.2s ease;
+}
+
+.user-table-row:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-modal-content {
+  border-radius: 1.5rem !important;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: var(--shadow-premium) !important;
+}
+
+.ant-modal-header {
+  padding: 24px 24px 0 24px !important;
+  background: white !important;
+}
+
+.ant-modal-body {
+  padding: 24px !important;
+}
+
+.ant-modal-footer {
+  padding: 16px 24px 24px 24px !important;
+  margin-top: 0 !important;
+  border-top: 1px solid #f1f5f9 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.ant-table {
+  background: transparent !important;
+}
+
+.ant-table-thead > tr > th {
+  background: #f8fafc !important;
+  color: #94a3b8 !important;
+  font-size: 10px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  padding: 20px 32px !important;
+}
+
+.ant-table-tbody > tr > td {
+  padding: 20px 32px !important;
+  border-bottom: 1px solid #f8fafc !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #f1f5f9 !important;
+}
+
+.custom-pagination-minimal .ant-pagination-item,
+.custom-pagination-minimal .ant-pagination-prev .ant-pagination-item-link,
+.custom-pagination-minimal .ant-pagination-next .ant-pagination-item-link {
+  border: 1px solid #e2e8f0 !important;
+  background: white !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-family: "Outfit", sans-serif !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-pagination-minimal .ant-pagination-item:hover,
+.custom-pagination-minimal .ant-pagination-prev:hover .ant-pagination-item-link,
+.custom-pagination-minimal
+  .ant-pagination-next:hover
+  .ant-pagination-item-link {
+  border-color: #3b82f6 !important;
+  color: #3b82f6 !important;
+}
+
+.custom-pagination-minimal .ant-pagination-item-active {
+  background: #3b82f6 !important;
+}
+
+.custom-pagination-minimal .ant-pagination-item-active a {
+  color: white !important;
+}
+
+.custom-select-minimal .ant-select-selector {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  color: #1e293b !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  background: white !important;
+  padding: 0 16px !important;
+}
+
+.custom-select-minimal:hover .ant-select-selector {
+  border-color: #3b82f6 !important;
+}
+
+.custom-select-minimal .ant-select-selection-search-input {
+  font-weight: 600 !important;
+}
+
+.custom-popover-premium .ant-popover-content {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.custom-popover-premium .ant-popover-inner {
+  border-radius: 1.5rem !important;
+  padding: 0 !important;
+  border: 1px solid rgba(241, 245, 249, 1) !important;
+}
+
+.custom-input-number {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.custom-input-number .ant-input-number-input {
+  font-weight: 800 !important;
+  color: #1e293b !important;
+  font-size: 13px !important;
+}
+
+.custom-input-number .ant-input-number-handler-wrap {
+  display: none !important;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
