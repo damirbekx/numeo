@@ -38,7 +38,7 @@ import React, { useState } from 'react';
 
 const { Title, Paragraph, Text } = Typography;
 
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000').replace(/\/api$/, '');
 
 interface ResponseState {
   data: unknown;
@@ -494,8 +494,11 @@ const Help: React.FC = () => {
                       <div>
                         <Text strong className="text-blue-900">API Availability</Text>
                         <Paragraph className="mb-0 text-blue-800 text-sm mt-1">
-                          After starting the server, the frontend will automatically connect to
-                          <Text code className="bg-white">http://127.0.0.1:8000</Text>.
+                          {API_BASE_URL.includes('127.0.0.1') || API_BASE_URL.includes('localhost')
+                            ? "Running locally? The frontend is configured to connect to your development server at "
+                            : "The frontend is currently configured to connect to the production API at "
+                          }
+                          <Text code className="bg-white">{API_BASE_URL}</Text>.
                           Ensure the server is running before interacting with user data.
                         </Paragraph>
                       </div>
